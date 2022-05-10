@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "assign/lotto/src",
+        "spring/html/multi"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
