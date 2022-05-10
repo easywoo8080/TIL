@@ -2,6 +2,22 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,java,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,java,visualstudiocode
 
+### TIL ###
+
+/test/
+
+
+text.txt
+
+
+
+
+
+
+
+
+
+
 ### Java ###
 # Compiled class file
 *.class
