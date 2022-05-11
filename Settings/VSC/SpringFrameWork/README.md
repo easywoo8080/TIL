@@ -70,9 +70,11 @@ WEB-INF > views 선택 추가
 
 9. src/main/resources 에 applications.properties 파일 수정 (반드시 메모장으로 열것)
 
-server.port=80
-spring.mvc.view.prefix=/WEB-INF/views/
-spring.mvc.view.suffix=.jsp
+		server.port=80
+		spring.mvc.view.prefix=/WEB-INF/views/
+		spring.mvc.view.suffix=.jsp
+
+
 10. 80 port 문제 시 
 
 제어판 > 시스템 및 보안 > 관리도구 > 서비스 > World Wide Web Publishibg  서비스 
