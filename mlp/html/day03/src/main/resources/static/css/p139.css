@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/* date */
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #tb1{
+
+            border-collapse: collapse;
+            width: 300px;
+            height: 150px;
+        }
+        #tb1 > thead > tr{
+            
+            color: white;
+            background: black;
+        }
+
+        #tb1 > tbody > tr > td:nth-child(3){
+            text-align: right;
+        }
+
+        #tb1 > tbody > tr:hover{
+            font-size: 1.2em;
+            font-weight: bold;
+            background: #484848;
+            color: blue;
+        }
