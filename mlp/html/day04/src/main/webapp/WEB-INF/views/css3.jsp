@@ -1,0 +1,3 @@
+<div class="center">
+    <h1>CSS3</h1>
+</div>

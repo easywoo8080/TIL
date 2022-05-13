@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/* date */
+/* import start 11 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+
+/* import end 00 */
+ /* Global CSS start --------------------------------------*/
+*{
+    font-family: 'Noto Sans KR', sans-serif;
+    
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration: none;
+	color:black;
+}
+ul,ol{
+	list-style: none;
+}
+/* Global CSS end --------------------------------------*/
+
+/* Header CSS start --------------------------------------*/
+header{
+	width:600px;
+	height:100px;
+	background: red;
+	margin:0 auto;
+
+    font-size: 25px;
+}
+header > h1{
+	text-align: center;
+	line-height: 100px;
+}
+/* Header CSS end --------------------------------------*/
+
+/* Nav CSS start --------------------------------------*/
+nav{
+	width:600px;
+	height:30px;
+	background: pink;
+	margin:0 auto;
+}
+nav > ul{
+	width:500px;
+	margin:0 auto;
+}
+nav > ul >	li{
+	float:left;
+	width:125px;
+	line-height: 30px;
+}
+nav > ul > li > a{
+	display: block;
+	text-align: center;
+}
+nav > ul > li > a:hover{
+	background: skyblue;
+    color: rebeccapurple;
+    font-size: large;
+}
+/* Nav CSS end --------------------------------------*/
+
+/* Section CSS start --------------------------------------*/
+section{
+	width:600px;
+	height:500px;
+	background: gray;
+	margin:0 auto;
+}
+section > aside{
+	float:left;
+}
+section > #left_aside{
+	width:100px;
+	height:500px;
+	background: yellow;
+}
+section > #center_aside{
+	width:400px;
+	height:500px;
+	background: white;
+}
+section > #right_aside{
+	width:100px;
+	height:500px;
+	background: gray;
+}
+
+section > .center{
+	width: 550px;
+	height: 450px;
+	background: white;
+	display: inline-block;
+	margin: 25px;
+}
+/* Section CSS end --------------------------------------*/
+
+/* Footer CSS start --------------------------------------*/
+footer{
+	width:600px;
+	height:30px;
+	background: black;
+	margin:0 auto;
+}
+/* Footer CSS end --------------------------------------*/
+        
