@@ -8,11 +8,11 @@
 		<version>2.6.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.day044</groupId>
-	<artifactId>day044</artifactId>
+	<groupId>com.day045</groupId>
+	<artifactId>day045</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>day044</name>
+	<name>day045</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>8</java.version>
@@ -39,7 +39,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		     <!-- @Inject -->
+		  <!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
@@ -74,10 +74,12 @@
 			<version>1.1</version>
   		</dependency>
 
-		  <dependency>
+        <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		
+
 	</dependencies>
 
 	<build>
