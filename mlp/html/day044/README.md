@@ -7,16 +7,19 @@
 
 
 
-	- pom.xml에 아래 코드를 추가
+	1 pom.xml에 아래 코드를 추가
 		
-		```<dependency>
+		```
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>```
+		</dependency>
+		```
 		
 	- 이 구성에선 webapp\WEB-INF\views 구조를 사용하지 않으며 templates에 html파일로 뷰파일을 생성한다.
-	- controller는 아래 방식으로 작성한다.
-		```@Controller
+	2 controller는 아래 방식으로 작성한다.
+		```
+		@Controller
 		public class MainController {
 			
 			@RequestMapping("/")
@@ -29,5 +32,9 @@
 				return "main";
 			}
 
-		}```
+		}
+		```
+
+	3 html파일 상단에 아래 코드를 추가
+		```<html xmlns:th="http://www.thymeleaf.org"></html>```
 		
