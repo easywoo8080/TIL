@@ -2,7 +2,7 @@
 
 6. pom.xml 추가
 
-        <!-- @Inject -->
+        ```<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
@@ -40,7 +40,7 @@
         <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
+		</dependency>```
 
 9. src/main/resources 에 applications.properties 파일 수정 (반드시 메모장으로 열것)
 
@@ -56,6 +56,7 @@
 
 
 
+---
 
 #ERROR
 
