@@ -1,3 +1,26 @@
 <meta charset="UTF-8">
+<script>
+    function calc(){
+        var txt = document.querySelector('#data').value;
+        if(txt == '' || txt == null ){
+            document.querySelector('#result').innerHTML ='Bye';
+            return;
+        };
+        var result = eval(txt);
+        if(isFinite(result)){
+            result = 'Input Error ..';
+        };
+   
+        document.querySelector('#result').innerHTML =result;
+        document.querySelector('#result').value = '';
+    };
+    
 
-<h1>Js06</h1>
+</script>
+
+
+<h1>Js06 Main</h1>
+<input type="text" id="data">
+<button onclick="calc();">Calc</button>
+<h3 id="result"></h3>
+

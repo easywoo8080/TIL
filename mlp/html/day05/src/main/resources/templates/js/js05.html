@@ -1,3 +1,56 @@
 <meta charset="UTF-8">
+<script>
+    function a(n){
+        var result = n * 1000;
+        return result;
+    };
+    var b = function(n, m){
+        var result = n * m;
+        return result;
+    };
+    function c(){
+        return function(){
+            return 100;
+        };
+    };
+    function d(f){
+        var result = f() * 2;
+        return result;
+    };
+    var dd = function(){
+        return 100;
+    };
 
-<h1>Js05</h1>
+    function disply(){
+        setInterval(function(){
+            var d = new Date();
+            var result = d.getHours()+' '+d.getMinutes()+' '+d.getSeconds();
+            document.querySelector('#time').innerHTML = result;
+        }, 1000);
+    };
+    
+    // function a()
+    //var result = a(100);
+
+    // function c()
+    //var r1 = c();
+    //var result = r1();
+
+    //function d()
+    //var result = d(dd);
+
+
+   
+
+    // ---
+
+    
+    // window.onload = function(){
+    //     disply();
+    // };
+
+    //alert(result);
+    
+</script>
+<h1>Js05 Main</h1>
+<h2 id="time"></h2>

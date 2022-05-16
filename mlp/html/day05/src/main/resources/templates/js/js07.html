@@ -1,3 +1,49 @@
 <meta charset="UTF-8">
+<script>
+    function calc(n){
+        document.querySelector('#result').innerHTML += n;
+    };
+    function result(){
+        var result = eval(document.querySelector('#result').innerHTML);
 
+
+        document.querySelector('#result').innerHTML = result;
+    };
+    function clean(){
+        document.querySelector('#result').innerHTML = '';
+    }
+</script>
 <h1>Js07</h1>
+<table>
+    <tbody>
+        <tr>
+            <td colspan="4"><input type="text" id="txt"></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc(1);">1</button></td>
+            <td><button onclick="calc(2);">2</button></td>
+            <td><button onclick="calc(3);">3</button></td>
+            <td><button onclick="calc('+');">+</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc(4);">4</button></td>
+            <td><button onclick="calc(5);">5</button></td>
+            <td><button onclick="calc(6);">6</button></td>
+            <td><button onclick="calc('-');">-</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc(7);">7</button></td>
+            <td><button onclick="calc(8);">8</button></td>
+            <td><button onclick="calc(9);">9</button></td>
+            <td><button onclick="calc('*');">*</button></td>
+        </tr>
+        <tr>
+            <td><button onclick="calc(0);">0</button></td>
+            <td><button onclick="clean();">C</button></td>
+            <td><button onclick="result();">=</button></td>
+            <td><button onclick="calc('/');">/</button></td>
+            
+        </tr>
+    </tbody>
+</table>
+<div id="result"></div>

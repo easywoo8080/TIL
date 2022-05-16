@@ -1,3 +1,54 @@
 <meta charset="UTF-8">
+<style>
+    #result{
+        width: 100;
+        border: 2px solid red;
 
-<h1>Js04</h1>
+    }
+    #result > table{
+        font-size: 3em;
+        border: 1px;
+        margin: 10px;
+        padding: 10px;
+        width: 5px;
+        height: 5px;
+    }
+    td, th{
+        margin: 10px;
+        padding: 10px;
+    }
+</style>
+
+<script>
+    
+    function getdata(){
+        var a = [
+            {id:'id01', name:'lee', age:10},
+            {id:'id02', name:'kim', age:20},
+            {id:'id03', name:'han', age:30},
+            {id:'id04', name:'EEE', age:40},
+            {id:'id05', name:'kon', age:50}
+        ];    
+        var txt = '';
+        txt += '<table>';
+        txt += '<thead>';
+        txt += '<tr><th>ID</th><th>NAME</th><th>AGE</th></tr>';
+        txt += '</thead>';
+
+
+        txt += '<tbody>';
+        for(var i in a) {
+            txt += '<tr>';
+            txt += '<td>' + a[i].id + '</td>';
+            txt += '<td>' + a[i].name + '</td>';
+            txt += '<td>' + a[i].age +'</td>';
+            txt += '</tr>';
+        };
+        txt += '</tbody>';
+        txt += '</table>';
+        document.querySelector('#result').innerHTML = txt;
+    };
+</script>
+<h1>Js04 Main</h1>
+<h2><a href="#" onclick="getdata();">Click</a></h2>
+<div id="result"></div>
