@@ -1,3 +1,23 @@
 <meta charset="UTF-8">
+<script>
+    window.onload = function(){
+        var c1 = document.querySelector('#c1');
+        var c2 = document.querySelector('#c2');
+        var c3 = document.querySelector('h2 > a');
 
-<h1>Js09</h1>
+        c1.onclick(function(){
+            alert('c1');
+        });
+        c2.onclick(function(){
+            alert('c2');
+        });
+        c3.onclick(function(){
+            alert('c3');
+        });
+    };
+</script>
+
+<h1>Js09 Main</h1>
+<button id="c1">Click1</button>
+<button id="c2">Click2</button>
+<h2><a id="c3" href="#">Click</a></h2>

@@ -1,1 +1,0 @@
-# VSC (Visual_Studio_Code) 에서 마크다운 문서 보는 법

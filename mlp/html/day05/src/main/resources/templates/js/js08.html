@@ -1,3 +1,29 @@
 <meta charset="UTF-8">
+<script>
+    function disply(d){
+        var txt = '';
+        for (var i in d) {
+            txt += '<h2>';
+            txt += d[i].id + ' ' + d[i].name+ ' ' + d[i].age;
+            txt += '</h2>';
+        }
 
-<h1>Js08</h1>
+
+        document.querySelector("#result").innerHTML = txt;
+    };
+
+    function getdata(){
+        var a = [
+            {id:'id01', name:'lee', age:10},
+            {id:'id02', name:'kim', age:20},
+            {id:'id03', name:'han', age:30},
+            {id:'id04', name:'EEE', age:40},
+            {id:'id05', name:'kon', age:50}
+        ]; 
+        disply(a);
+    };
+    
+</script>
+<h1>Js08 Main</h1>
+<button onclick="getdata();">GET DATA</button>
+<div id="result"></div>
