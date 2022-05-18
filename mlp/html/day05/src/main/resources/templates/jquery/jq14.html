@@ -1,0 +1,48 @@
+<meta charset="UTF-8">
+<style>
+    table{
+        width: 500px;
+        border: 2px solid red;
+
+    }
+</style>
+<script>
+    function getdata(){
+        var data = [
+            {id:'id01', name:'lee', age:10},
+            {id:'id02', name:'kim', age:20},
+            {id:'id03', name:'han', age:30},
+            {id:'id04', name:'EEE', age:40},
+            {id:'id05', name:'kon', age:50}
+        ];  
+        var txt = '';
+        let tds = '<td>';
+        let tde =  '</td>';
+        $(data).each(function(index, item){
+            txt += '<tr>';
+            txt += tds + item.id + tde;
+            txt += tds + item.name + tde;
+            txt += tds + item.age + tde;
+            txt += '</tr>';
+        });
+
+        $('table > tbody').append(txt);
+    };
+
+
+
+</script>
+
+<h1>JQ14 Main</h1>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th><th>Name</th><th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>

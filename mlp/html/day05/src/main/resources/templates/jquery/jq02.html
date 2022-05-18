@@ -1,0 +1,64 @@
+<meta charset="UTF-8">
+<script>
+    
+$(document).ready(function(){
+    /*
+        $('button').on({
+            'click' : function(){
+                $(this).css({'color':'red', 'background':'black'});
+        },
+        'mouseenter' : function(){
+            $('h1').text('mouse enter');
+            $(this).addClass('b');
+        },
+        'mouseleave' : function(){
+            $('h1').text('mouse leave');
+            $(this).removeClass('b');
+        }   
+    });
+    
+    $('button').mouseenter(function(){
+        $('h1').text('mouse enter');
+    });
+    $('button').mouseleave(function(){
+        $('h1').text('mouse leave');
+    });
+    $('button').click(function(){
+        $(this).css({'color':'red', 'background':'black'});
+        
+    });
+    */
+
+    $('h2').hover(function(){
+        $('h1').text('mouse enter');
+    },function(){
+        $('h1').text('mouse leave');
+    });
+
+    $('input[name="id"]').focus(function(){
+        $(this).addClass('b');
+        $('form > span:eq(0)').text('ID를 입력하세요');
+    });
+    $('input[name="id"]').blur(function(){
+        $(this).removeClass('b');
+        var txt = $(this).val();
+        if( txt == ''){
+            $('form > span:eq(0)').text('ID는 필수 항목 입니다.');
+            
+        }
+        if(txt.length < 5){
+            $('form > span:eq(0)').text('ID는 5개 이상이여야 합니다.');
+        }
+    });
+
+});
+</script>
+<h1>JQ02 Main</h1>
+
+<h2>Header2</h2>
+<button>Button</button>
+<form >
+ID <input type="text" name="id"><span></span><br>
+PWD <input type="passwd" name="pwd"><span></span><br>
+<input type="submit" value="login">
+</form>

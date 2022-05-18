@@ -1,0 +1,47 @@
+<meta charset="UTF-8">
+<script>
+    function display(d){
+        var txt = '';
+        // for (var i in d) {
+        //     txt += '<h3>';
+        //         txt += d[i].id + ' ' + d[i].name+' '+d[i].age;
+        //         txt += '</h3>';
+        // }
+
+        $(d).each(function(index, item){
+                txt += '<h3>';
+                txt += item.id + ' ' + item.name+' '+ item.age;
+                txt += '</h3>';
+        });
+
+        $('#result').html(txt);
+    };
+
+    function getdata(){
+        var data = [
+            {id:'id01', name:'lee', age:10},
+            {id:'id02', name:'kim', age:20},
+            {id:'id03', name:'han', age:30},
+            {id:'id04', name:'EEE', age:40},
+            {id:'id05', name:'kon', age:50}
+        ];    
+        display(data);
+    };
+  
+
+        
+    
+
+    $(document).ready(function(){
+        $('button').click(function(){
+            getdata();
+        });
+    });
+</script>
+
+
+<h1>JQ05 Main</h1>
+<button id="getdata">GET DATA</button>
+<button id="show">Show</button>
+<button id="hide">Hide</button>
+<div id="result"></div>

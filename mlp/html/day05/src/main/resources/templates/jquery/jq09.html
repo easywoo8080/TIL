@@ -1,0 +1,87 @@
+<meta charset="UTF-8">
+<style>
+    #result{
+        border: 2px solid red;
+    }
+    .myclass{
+        color : red;
+        background: black;
+    }
+</style>
+<script>
+
+
+    $(document).ready(function(){
+        var start = '<h4>Add Element : ';
+        var end = '</h4>';
+        var i = 1;
+
+        // $('h1').css({
+        //     'color':'red',
+        //     'background':'black'
+        // });
+
+        $('h1').hover(function(){
+            $(this).addClass('myclass');
+        }, function(){
+            $(this).removeClass('myclass');
+        });
+
+        $('button').addClass('myclass');
+
+
+        $('#append').click(function(){
+            $('#result').append(start + i + end);
+            i++;
+
+            $(this).addClass('myclass');
+            $('button').not($(this)).removeClass('myclass');
+
+
+        });
+        $('#prepend').click(function(){
+            $('#result').prepend(start + i + end);
+            i++;
+
+            $(this).addClass('myclass');
+            $('button').not($(this)).removeClass('myclass');
+        });
+        $('#after').click(function(){
+            $('#result').after(start + i + end);
+            i++;
+
+            $(this).addClass('myclass');
+            $('button').not($(this)).removeClass('myclass');
+        });
+        $('#before').click(function(){
+            $('#result').before(start + i + end);
+            i++;
+
+            $(this).addClass('myclass');
+            $('button').not($(this)).removeClass('myclass');
+        });
+        $('#remove').click(function(){
+            $('#result').remove();     
+            
+            $(this).addClass('myclass');
+            $('button').not($(this)).removeClass('myclass');
+        });
+        $('#empty').click(function(){
+            $('#result').empty();
+
+            $(this).addClass('myclass');
+            $('button').not($(this)).removeClass('myclass');
+        });
+    
+    });
+</script>
+
+<h1>JQ09 Main</h1>
+<button id="append">append</button>
+<button id="prepend">prepend</button>
+<button id="after">after</button>
+<button id="before">before</button>
+<button id="remove">remove</button>
+<button id="empty">empty</button>
+<hr>
+<div id="result"></div>

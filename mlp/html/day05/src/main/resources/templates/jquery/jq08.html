@@ -1,0 +1,101 @@
+<meta charset="UTF-8">
+<script>
+function getdata(){
+    $('#name').val('lee');
+    $('#name').attr('disabled','disabled');
+    
+
+    $('#pwd').val('1111');
+    
+
+
+    $('input[name="ch"]:checkbox[value="cop1"]').attr('checked', true);
+    $('input[name="ch"]:checkbox[value="cop3"]').attr('checked', true);
+
+
+    $('input[name="optradio"]:radio[value="rop3"]').attr('checked', true);
+  
+
+    $('#sel1').val('2').attr('selected', 'selected');
+    
+};
+
+
+
+$(document).ready(function(){
+
+    getdata();
+
+    $('#register_bt').click(function(){
+        var name = $('#name').val();
+        var pwd = $('#pwd').val();
+     
+        if(name == ''){
+            $('#name_help').show();
+            $('#name').focus();
+            return;
+        }
+        if(pwd == ''){
+            $('#pwd_help').show();
+            $('#pwd').focus();
+            return;
+        }
+       
+ 
+        $('#register_form').attr({
+            'action' : 'registerimpl',
+            'method' : 'get'
+        });
+        $('#register_form').submit();
+    });
+    
+    $('#name').keyup(function(){
+        $('name_help').hide();
+    });
+
+});
+</script>
+<div class="container">
+    <h1>Registser 08</h1>
+    <form id="register_form" >
+
+    
+<!-- Input -->
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="usrName" class="form-control" placeholder="Input Name" id="name">
+        <span class="name_help">This it Mandatory Field...</span>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" name="pwdName" class="form-control" id="pwd">
+        <span class="pwd_help">This it Mandatory Field...</span>
+      </div>
+<!-- CheckBox -->
+      <div class="form-group">
+        <label class="checkbox-inline"><input type="checkbox" name="ch" value="cop1">COption 1</label>
+        <label class="checkbox-inline"><input type="checkbox" name="ch" value="cop2">COption 2</label>
+        <label class="checkbox-inline"><input type="checkbox" name="ch" value="cop3">COption 3</label>
+      </div>
+<!-- RadioBox -->
+      <div class="form-group">
+        <label class="radio-inline"><input type="radio" name="optradio" value="rop1" >ROption 1</label>
+        <label class="radio-inline"><input type="radio" name="optradio" value="rop2" >ROption 2</label>
+        <label class="radio-inline"><input type="radio" name="optradio" value="rop3" >ROption 3</label>
+      </div>
+<!-- Select List -->
+      <div class="form-group">
+        <label for="sel1">Select list:</label>
+        <select class="form-control" id="sel1" name="sel">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <button id="register_bt" type="button" class="btn btn-success">Registser</button>
+    </form>
+</div>
+
+
+
