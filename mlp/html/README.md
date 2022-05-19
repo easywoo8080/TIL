@@ -1,4 +1,4 @@
-# html
+# Open it in the html folder 
 
 6. pom.xml 추가
 
