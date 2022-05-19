@@ -1,0 +1,109 @@
+<meta charset="UTF-8">
+<script>
+function aj04Checked(id){
+    $.ajax({
+        url : 'aj04Checked',
+        data : {'id': id},
+        success : function(data){
+            if( data == '1'){
+                $('#name_help').text('사용가능한 아이디 입니다.');
+                $('#name_help').show();
+            }else{
+                $('#name_help').text('사용 불가능한 아이디 입니다.');
+                $('#name_help').show();
+            }
+        }
+    });
+};
+
+
+
+$(document).ready(function(){
+    $('#name_help').hide();
+    $('#pwd_help').hide();
+
+    $('#name').keyup(function(){
+        var id = $(this).val();
+        $('#name_help').hide();
+        aj04Checked(id);
+    });
+
+
+    $('#pwd').keyup(function(){
+        $('#pwd_help').hide();
+    });
+
+
+    $('#register_bt').click(function(){
+        var name = $('#name').val();
+        var pwd = $('#pwd').val();
+     
+        if(name == ''){
+            $('#name_help').text('This it Mandatory Field...');
+            $('#name_help').show();
+            $('#name').focus();
+            return;
+        }
+        if(pwd == ''){
+            $('#pwd_help').show();
+            $('#pwd').focus();
+            return;
+        }
+        $('#register_form').attr({
+            'action' : 'aj04register_form',
+            'method' : 'get'
+        });
+        $('#register_form').submit();
+    });
+    
+    
+
+});
+</script>
+<div class="container">
+    <h1>Registser</h1>
+    <form id="register_form" >
+<!-- Input -->
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="usrName" class="form-control" placeholder="Input Name" id="name">
+        <span id="name_help" >This it Mandatory Field...</span>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" name="pwdName" class="form-control" id="pwd">
+        <span id="pwd_help">This it Mandatory Field...</span>
+      </div>
+<!-- RadioBox -->
+      <div class="form-group">
+        <label class="radio-inline"><input type="radio" name="optradio" value="rop1" checked>Option 1</label>
+        <label class="radio-inline"><input type="radio" name="optradio" value="rop2" >Option 2</label>
+        <label class="radio-inline"><input type="radio" name="optradio" value="rop3" >Option 3</label>
+      </div>
+<!-- Select List -->
+      <div class="form-group">
+        <label for="sel1">Select list:</label>
+        <select class="form-control" id="sel1" name="sel">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+      <button id="register_bt" type="button" class="btn btn-success">Registser</button>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+- 회원가입 폼을 만든다.
+- checkbox 뺀다
+- ajax id 체크
+- 각 필드 validation
+- 서버로 from 데이터 전송
+- 완료 화면 출력

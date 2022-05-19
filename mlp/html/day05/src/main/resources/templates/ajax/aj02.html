@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<style>
+    #result{
+        width: 500px;
+        border: 2px solid red;
+    }
+</style>
+<script>
+function display(data){
+    $('#result').text(data);
+};
+
+function getdata(txt){
+    $.ajax({
+        url : 'search',
+        data : { 's' : txt},
+        success : function(data){
+            display(data);
+        }
+    });
+};
+
+
+
+    $(document).ready(function(){
+        $('button').click(function(){
+            var txt = $('#txt').val();
+            getdata(txt);
+        });
+
+    });
+</script>
+
+<h1>Aj02 Main</h1>
+<input type="text" id="txt">
+<button>GETDATA</button>
+<div id="result"></div>

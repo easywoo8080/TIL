@@ -1,0 +1,60 @@
+<meta charset="UTF-8">
+<style>
+    #result{
+        width: 500px;
+        border: 2px solid red;
+    }
+</style>
+<script>
+function checkid(id){
+    $.ajax({
+        url : 'checkid',
+        data : {'id' : id},
+        success : function(data){
+            if( data == '1' ){
+                $('#iid').text('사용가능한 아이디 입니다.');
+            }else{
+                $('#iid').text('사용 불가능한 아이디 입니다.');
+            }
+        }
+    });
+};
+$(document).ready(function(){
+    $('button').click(function(){
+        var id = $('input[name="id"]').val();
+        var pwd = $('input[name="pwd"').val();
+        if( pwd == $('input[name="pwd2"').val()){
+            $('#register_form').attr({
+                'action' : 'register_formimpl',
+                'method' : 'post'
+            });
+            $('#register_form').submit();
+        }else{
+            $('#ppwd').text('비밀번호가 같지 않습니다.');
+        }
+    });
+    $('input[name="id"]').keyup(function(){
+        var id = $(this).val();
+
+        if( id.length < 3 ){
+            $('#iid').text('3자리 이상이어야 합니다.');
+        }else{
+            
+            checkid(id);
+        }
+        
+    });
+});
+
+</script>
+
+<h1>aj03 Main</h1>
+
+<form id="register_form">
+    ID <input type="text" name="id"><span id="iid"></span><br>
+    PWD1 <input type="password" name="pwd"><span id="ppwd"></span><br>
+    PWD2 <input type="password" name="pwd2"><br>
+</form>
+
+<button>REGISTER</button>
+<div id="result"></div>
