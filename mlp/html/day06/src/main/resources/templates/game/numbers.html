@@ -1,0 +1,165 @@
+<meta charset="UTF-8">
+<style>
+    .myclass{
+        background-color: black;
+        color: red;
+    }
+    .qbutton{
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+    }
+   
+</style>
+<script>
+var qnum = 0;
+var ok = null;
+var oklist = null;
+
+
+
+var stk = 0;
+var ball = 0;
+var out = 0;
+
+function startGame(){
+
+    ok = new Set();
+    for (let index = 0; ok.size < qnum; index++) {
+
+        ok.add( Math.floor(Math.random() * 10 )  );
+    }
+
+    oklist = Array.from(ok);
+    
+};
+
+function check( answer ){
+    alert("check answer: "  + answer);
+    alert("check oklist: "  + oklist);
+    answer = answer.split("");
+
+    
+   for (let i = 0; i < answer.length; i++) {
+       for (let j = 0; j < oklist.length; j++) {
+
+           if( answer[i] == oklist[j] && i == j){
+                stk++;
+           }else if(  answer[i] == oklist[j] && i != j ){
+               ball++;
+           }   
+
+       }
+   }
+   out = qnum - stk - ball;
+
+   for (let index = 0; index < qnum; index++) {
+        $('#sbo').append('<button class="qbutton" disabled="true" >'+answer[index]+' </button>');   
+    }
+    $('#sbo').append('<br>');  
+    $('#sbo').append('<h3>'+"SBO : "+ stk + " : " + ball + " : "+out      +'</h3>');   
+    $('#sbo').append('<br>');   
+
+    if( stk == qnum ){
+        stop();
+
+
+        for (let index = 0; index < qnum; index++) {
+        $('#sbo').append('<button class="qbutton" disabled="true" style="background-color : green; color : white;" >'+answer[index]+' </button>');   
+        }
+        $('#sbo').append('<br>');  
+        $('#sbo').append('<h2>축하합니다. 정답입니다.</h2>');   
+        $('#sbo').append('<br>'); 
+
+        $('input[type="submit"]').attr("disabled", true)
+
+        
+    }
+    stk = 0;
+    ball = 0;
+};
+
+
+function start(){
+    stop();
+    qnum = $('#level').val();
+    stk = 0;
+    ball = 0;
+
+    if(qnum < 3){
+        alert("퀴즈는 3~10까지만 가능합니다.");
+        $('#level').val('3');
+        $('#level').focus();
+        return;
+
+    }else if(qnum > 10){
+        alert("퀴즈는 3~10까지만 가능합니다.");
+        $('#level').val('10');
+        $('#level').focus();
+        return;
+    }
+
+    startGame();
+
+    $('#start').attr("disabled",true);
+    $('#stop').attr("disabled",false);
+    $('input[type="submit"]').attr("disabled", false)
+    $('input[name="level"]').attr("disabled",true);
+
+    $('#start').addClass('myclass');
+    $('button').not($('#start')).removeClass('myclass');
+
+
+    $('#h3').text(qnum+'갯수만큼 숫자를 입력해 주세요');
+    
+    $('#quiz').append('<br>');
+    
+    $('#quiz').append($('<input id="result" text="number" max="' +  (10 ** qnum -1) +'" />'));
+
+
+
+
+    $('input[type="submit"').show();
+};
+function stop(){
+    $('#stop').attr("disabled",true);
+    $('#start').attr("disabled",false);
+
+
+    $('input[name="level"]').attr("disabled",false);
+    $('#stop').addClass('myclass');
+    $('button').not($('#stop')).removeClass('myclass');
+
+    $('#h3').text('');
+    $('#quiz').empty();
+    $('#sbo').empty();
+    $('input[type="submit"').hide();
+
+    
+};
+
+    $(document).ready(function(){
+        $('#start').click(function(){
+            start();
+        });
+        $('#stop').click(function(){
+            stop();
+        });
+        $('input[type="submit"]').click(function(){
+            check($('#result').val());
+        });
+    });
+</script>
+
+
+<h1>숫자 야구</h1>
+    Level <input id="level" name="level" type="number" value="3" min="3" max="10">
+    <button id="start" >START</button>
+    <button id="stop" class="myclass">STOP</button>
+<hr>
+<h3 id="h3"></h3>
+<div id="quiz"></div>
+<input type="submit" value="Check" hidden>
+<br>
+<div id="sbo"></div>
+

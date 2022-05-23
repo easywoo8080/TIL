@@ -3,6 +3,8 @@
 6. pom.xml 추가
 
         ```xml
+
+		
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
@@ -42,17 +44,24 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+
+
 		```
 
 9. src/main/resources 에 applications.properties 파일 수정 (반드시 메모장으로 열것)
 
 	```applications.properties
 	server.port=80
+	
 	spring.mvc.view.prefix=/WEB-INF/views/
 	spring.mvc.view.suffix=.jsp       
 	```
 
-
+	- JSP를 사용하지 않으면 아래 코드 삭제 가능
+	```
+	spring.mvc.view.prefix=/WEB-INF/views/
+	spring.mvc.view.suffix=.jsp   
+	```
 
 
 
