@@ -51,10 +51,10 @@
         var autoset = null;
 
         $('#auto').click(function(){
-        autoset = setInterval(function(){
-            rightclick();
-            }, 1000);
-        });
+            autoset = setInterval(function(){
+                rightclick();
+                }, 1000);
+            });
 
         $('#stop').click(function(){
             clearInterval(autoset);

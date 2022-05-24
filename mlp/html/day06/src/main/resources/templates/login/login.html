@@ -1,0 +1,90 @@
+<meta charset="UTF-8">
+<script>
+function idcheck(id){
+    $.ajax({
+        url : 'loginidcheck',
+        data : {'id': id},
+        success : function(data){
+            if( data == '1'){
+                $('#bsubmit').attr("disabled", false);
+                $('#id_help').text('사용가능한 아이디 입니다.');
+                $('#id_help').show();
+            }else{
+             
+                $('#bsubmit').attr("disabled", true);
+                $('#id_help').text('사용 불가능한 아이디 입니다.');
+                $('#id_help').show();
+            }
+        },
+    });
+};
+
+
+
+$(document).ready(function(){
+  $('#id_help').hide();
+
+  $('#bsubmit').click(function(){
+    if( !$('#email').val() ){
+      alert('ID를 입력해주세요');
+      $('#email').focus();
+      return;
+    }else if(!$('#pwd').val()){
+      alert('PASSWORD를 입력해주세요');
+      $('#pwd').focus();
+      return;
+    }
+    $('#loginform').attr({
+        'action' : 'logincheck',
+        'method' : 'get'
+    });
+
+    $('#loginform').submit();
+  });
+
+
+  $('#email').keyup(function(){
+    var id = $('#email').val();
+    $('#id_help').hide();
+    idcheck( id );
+  });
+});
+</script>
+
+
+<div class="container">
+  <div class="col-sm-offset-2 col-sm-10">
+  	<h2>Horizontal form</h2>
+  </div>
+  <form class="form-horizontal" id="loginform">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">ID:</label>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" id="email" placeholder="Enter id" name="email">
+        <span id="id_help" >This it Mandatory Field...</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Password:</label>
+      <div class="col-sm-6">          
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      </div>
+    </div>
+
+
+    <!-- <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember"> Remember me</label>
+        </div>
+      </div>
+    </div> -->
+
+
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button id="bsubmit" type="button" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

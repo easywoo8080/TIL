@@ -21,6 +21,7 @@ var oklist = null;
 var stk = 0;
 var ball = 0;
 var out = 0;
+var cnt = 0;
 
 function startGame(){
 
@@ -35,22 +36,40 @@ function startGame(){
 };
 
 function check( answer ){
+
+    // 테스트 코드
     alert("check answer: "  + answer);
     alert("check oklist: "  + oklist);
+
+    // 테스트 코드 //
+
+    if( !answer ){
+        alert("값을 입력 해주세요");
+        $('#result').focus();
+        return;
+    }
+
     answer = answer.split("");
+
 
     
    for (let i = 0; i < answer.length; i++) {
        for (let j = 0; j < oklist.length; j++) {
-
-           if( answer[i] == oklist[j] && i == j){
+            if( answer[i] == answer[j] && i != j ){
+                alert('중복값 없이 입력해주세요');
+                $('#result').focus();
+                return;
+                
+            }
+            if( answer[i] == oklist[j] && i == j){
                 stk++;
-           }else if(  answer[i] == oklist[j] && i != j ){
-               ball++;
-           }   
+            }else if(  answer[i] == oklist[j] && i != j ){
+                ball++;
+            }   
 
        }
    }
+   
    out = qnum - stk - ball;
 
    for (let index = 0; index < qnum; index++) {
@@ -59,7 +78,7 @@ function check( answer ){
     $('#sbo').append('<br>');  
     $('#sbo').append('<h3>'+"SBO : "+ stk + " : " + ball + " : "+out      +'</h3>');   
     $('#sbo').append('<br>');   
-
+    cnt++;
     if( stk == qnum ){
         stop();
 
@@ -68,7 +87,7 @@ function check( answer ){
         $('#sbo').append('<button class="qbutton" disabled="true" style="background-color : green; color : white;" >'+answer[index]+' </button>');   
         }
         $('#sbo').append('<br>');  
-        $('#sbo').append('<h2>축하합니다. 정답입니다.</h2>');   
+        $('#sbo').append('<h2>축하합니다.정답입니다. 총 '+cnt+' 번 만에 성공했습니다.</h2>');   
         $('#sbo').append('<br>'); 
 
         $('input[type="submit"]').attr("disabled", true)
@@ -77,14 +96,14 @@ function check( answer ){
     }
     stk = 0;
     ball = 0;
+    
 };
 
 
 function start(){
     stop();
     qnum = $('#level').val();
-    stk = 0;
-    ball = 0;
+    cnt = 0;
 
     if(qnum < 3){
         alert("퀴즈는 3~10까지만 가능합니다.");

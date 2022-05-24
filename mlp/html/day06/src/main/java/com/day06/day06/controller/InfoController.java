@@ -8,12 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class InfoController {
 
     
-
-
     @RequestMapping("/info")
     public String info(Model m ){
         m.addAttribute("center", "info/center");
-        m.addAttribute("left", "game/left");
+        
         return "main";
     }
 }

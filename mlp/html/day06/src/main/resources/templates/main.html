@@ -16,8 +16,40 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+<!-- kakaoMap -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0200c4c55160e4de9478d7d34934b88e"></script>
 
+
+<!-- script -->
+<script>
+var imgs = ['img/1.jpg', 'img/2.jpg','img/3.jpg'];
+cnt = 0;
+	function commerImg(){
+		var str = $('#image').attr('src');
+		str = str.substr(4, 1);
+		if( str == 3 ){
+			$('#image').attr('src', imgs[0])
+			return;
+		}
+		$('#image').attr('src', imgs[str])
+	};
+	$(document).ready(function(){
+		setInterval(function(){
+			commerImg();
+		}, 1000);
+	});
+
+	
+</script>
 <style>
+	/* style  */
+	.img{
+		width: 200px;
+	}
+
+
+
+
    /* Remove the navbar's default margin-bottom and rounded borders */ 
    .navbar {
      margin-bottom: 0;
@@ -106,10 +138,7 @@ body {
 	    </div> -->
 		<div class="col-sm-2 sidenav">
 			<div class="well">
-			  <p>ADS</p>
-			</div>
-			<div class="well">
-			  <p>ADS</p>
+				<img id="image" src="img/1.jpg" class="img">
 			</div>
 		  </div>
 	  </div>

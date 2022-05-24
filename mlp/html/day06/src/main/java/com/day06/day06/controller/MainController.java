@@ -11,12 +11,5 @@ public class MainController {
     public String main(Model m ){
         return "main";
     }
-
-
-    @RequestMapping("/login")
-    public String login(Model m ){
-        m.addAttribute("center", "login");
-        m.addAttribute("left", "game/left");
-        return "main";
-    }
 }
+   
