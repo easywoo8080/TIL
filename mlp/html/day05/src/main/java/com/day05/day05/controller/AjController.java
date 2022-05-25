@@ -103,5 +103,23 @@ public class AjController {
         m.addAttribute("left", "ajax/left");
         return "main";
     }
+    @RequestMapping("/aj11")
+    public String aj11(Model m) {
+        m.addAttribute("center", "ajax/aj11");
+        m.addAttribute("left", "ajax/left");
+        return "main";
+    }
+    @RequestMapping("/aj12")
+    public String aj12(Model m) {
+        m.addAttribute("center", "ajax/aj12");
+        m.addAttribute("left", "ajax/left");
+        return "main";
+    }
+    @RequestMapping("/aj13")
+    public String aj13(Model m) {
+        m.addAttribute("center", "ajax/aj13");
+        m.addAttribute("left", "ajax/left");
+        return "main";
+    }
 
 }

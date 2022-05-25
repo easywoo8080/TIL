@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+<script>
+function getdata(loc){
+    $.ajax({
+            url : 'https://apis.data.go.kr/1360000/MidFcstInfoService/getMidFcst',
+            data : {'serviceKey' : 'JcHsNBifPrYZecOI42b3TVmWqVImR14ArNTeGqEjJQqUYi7OmIJ5gYyk',
+                    'pageNo' : '1',
+                    'numOfRows' : '10',
+                    'dataType' : 'JSON',
+                    'regId' : loc,
+                    'tmFc' : '202205250600'
+            },
+            success : function(){
+                alert(data);
+            }
+        });
+};
+
+function display(data){
+    $('#result').text(data);
+};
+
+
+
+    $(document).ready(function(){
+        $('#s').click(function(){
+            getdata('11B10101');
+        });
+        $('#i').click(function(){
+            getdata('11B20201');
+        });
+    });
+</script>
+<h1>Aj12 Main</h1>
+<button id="s">Seoul</button>
+<button id="i">Inchun</button>
+<div id="result"></div>
+

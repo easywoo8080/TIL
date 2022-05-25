@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<script>
+function getdata(){
+    $.ajax({
+            url : 'gettime',
+            success : function(data){
+                display(data);
+                
+            },
+            error:function(){
+                alert('Error');
+            }
+        });
+};
+
+function display(data){
+    $('#result').text(data);
+};
+
+
+
+    $(document).ready(function(){
+        setInterval(function(){
+            getdata();
+        },1000);
+    });
+</script>
+<h1>Aj13 Main</h1>
+<div id="result"></div>

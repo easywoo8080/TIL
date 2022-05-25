@@ -32,34 +32,13 @@ function displaymarker(pos){
 
 };
 function getmarkers(loc){
-    var pos = null;
-    var pos = [
-        {
-            content: '<div>카카오</div>',
-            lat : 37.55041692365908,
-            lng :  126.91037178013711,
-            target : 'js01'
-        },
-        {
-            content: '<div>생태연못</div>', 
-            lat : 37.55241692365908,
-            lng :  126.91237178013711,
-            target : 'js02'
-        },
-        {
-            content: '<div>텃밭</div>', 
-            lat : 37.55441692365908,
-            lng :  126.91437178013711,
-            target : 'js03'
-        },
-        {
-            content: '<div>근린공원</div>',
-            lat : 37.55641692365908,
-            lng :  126.91637178013711,
-            target : 'js    04'
+    $.ajax({
+        url : 'getmarkers',
+        data : {'loc' : loc},
+        success:function(data){
+            displaymarker(data);
         }
-    ];
-    displaymarker(pos);
+    });
 };
 
     function gomap(loc){
